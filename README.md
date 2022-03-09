@@ -1,1 +1,0 @@
-# teste_grau_tecnico
