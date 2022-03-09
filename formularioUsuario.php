@@ -1,3 +1,5 @@
+<?php $home ="";$cUsuario =""?>
+
 <!doctype html>
 <html lang="en">
 

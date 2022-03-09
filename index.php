@@ -1,3 +1,6 @@
+<?php $home = "home";?>
+<?php $user = 1;?>
+<?php echo md5('diego');?>
 <!doctype html>
 <html lang="en">
 

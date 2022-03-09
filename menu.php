@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
-
+        <?php if($user == '1'){?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Cadastro
@@ -24,7 +24,7 @@
                     <a class="dropdown-item" href="formularioCategoria.php">Categoria</a>
                 </div>
             </li>
-
+            <?php }else{}?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Relatorio
@@ -43,11 +43,14 @@
 
         <div class="d-inline p-2 ">
             <div class="avatar">
-                <img src="assets/img/avatar.jpg" alt="">
+                <!-- <img src="assets/img/avatar.jpg" alt=""> -->
             </div>
         </div>
         <div class="d-inline p-2 ">
             <h6>Diego Rodrigues</h6>
+        </div>
+        <div class="d-inline p-2 ">
+            <button href="" class="btn btn-danger text-white">Sair</button>
         </div>
     </div>
 </nav>
