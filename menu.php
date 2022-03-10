@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
-        <?php if($user == '1'){?>
+        <?php if($_SESSION["user_perfil"] == 'a'){?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Cadastro
@@ -47,10 +47,10 @@
             </div>
         </div>
         <div class="d-inline p-2 ">
-            <h6>Diego Rodrigues</h6>
+            <h6><?php echo $_SESSION["user_nome"]?></h6>
         </div>
         <div class="d-inline p-2 ">
-            <button href="" class="btn btn-danger text-white">Sair</button>
+            <a href="./vendor/logout.php" class="btn btn-danger text-white">Sair</a>
         </div>
     </div>
 </nav>

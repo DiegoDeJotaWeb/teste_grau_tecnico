@@ -1,4 +1,13 @@
-<?php $home ="";$cCategoria =""?>
+<?php 
+ session_start();
+ if(!isset($_SESSION["user_painel"])  ){   
+     header('Location:login.php');
+ }
+
+ if($_SESSION["user_perfil"] == "v"){
+  header('Location:index.php');
+ }
+$home ="";$cCategoria =""?>
 <!doctype html>
 <html lang="en">
 

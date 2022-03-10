@@ -10,3 +10,12 @@ footer{
     position: absolute;
     width: 100%;
 }
+
+.logo-login{
+    margin-top: 100px;
+    
+}
+
+canvas{
+    margin:10px auto;
+}

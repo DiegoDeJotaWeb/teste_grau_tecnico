@@ -1,12 +1,13 @@
-<?php
+<?
  
  session_start();
  if(!isset($_SESSION["user_painel"])){   
      header('Location:login.php');
  }
-
+ echo $_SESSION["user_painel"];
+ echo $_SESSION["user_perfil"];
  
- $home = "home";  ?>
+ $home = "home"; $user = 1; ?>
  <?php //echo md5('diego'); ?> 
 
 <!doctype html>
@@ -25,9 +26,9 @@
 
 <body>
     <?php include_once "menu.php" ?>
-    <div class="container mt-4 ">
+    <div class="container mt-4">
         <?php include_once "breadcrumb.php" ?>
-        <canvas id="myChart" class="text-center" width="600" height="400"></canvas>
+        <canvas id="myChart" width="400" height="200"></canvas>
     </div>
 
     <!-- Optional JavaScript -->
@@ -39,14 +40,10 @@
     <!-- <script src="assets/js/graficoClientes.js"></script> -->
     <script>
         const ctx = document.getElementById('myChart');
-        let qtdGratis = '';
-        let qtdNormal = '';
-        let qtdPremio = '';
-
 
         const data = {
             labels: [
-                'Grátis',
+                'Gratis',
                 'Normal',
                 'Prêmio'
             ],
@@ -59,11 +56,8 @@
                     'rgb(255, 205, 86)'
                 ],
                 hoverOffset: 4
-                
             }]
-           
         };
-        console.log(data['datasets["data"]']);
         const config = {
             type: 'pie',
             data: data,

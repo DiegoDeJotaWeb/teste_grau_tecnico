@@ -1,11 +1,18 @@
-<?php $home ="";$rCategoria =""?>
+<?php 
+session_start();
+if(!isset($_SESSION["user_painel"])){   
+    header('Location:login.php');
+}
+
+
+
+$home ="";$rCategoria =""?>
 <?php
 include './vendor/conecta.php';
 $con = PdoConexao::getInstancia();
 
 $sql = "SELECT * FROM categoria";
 $buscarCategoria = $con->query($sql);
-
 ?>
 
 

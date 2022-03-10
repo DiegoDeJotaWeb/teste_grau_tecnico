@@ -1,4 +1,10 @@
-<?php $home ="";$rCliente =""?>
+<?php 
+session_start();
+if(!isset($_SESSION["user_painel"])){   
+    header('Location:login.php');
+}
+
+$home ="";$rCliente =""?>
 <?php
 include './vendor/conecta.php';
 $con = PdoConexao::getInstancia();
