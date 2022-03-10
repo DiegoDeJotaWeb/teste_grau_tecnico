@@ -31,14 +31,16 @@ values('Poliana Silva','Polly','123','v');
 
 
 insert into cliente(nomeCliente, perfilCliente, idCategoria)values("Nina Rodrigues Silva","grátis",1);
-insert into cliente(nomeCliente, perfilCliente, idCategoria)values("bola Rodrigues Silva","Premio",2);
+insert into cliente(nomeCliente, perfilCliente, idCategoria)values("Lucy Rodrigues Silva","Premio",2);
 
--- INSERT INTO usuario (nomeUsuario, loginUsuario,senhaUsuario, loginPerfil)VALUES('lucy rodrigues', 'lucy','123','a');
+
 
 SELECT *
-FROM cliente AS C
-JOIN categoria AS CT ON C.idCategoria = CT.idCategoria;
+FROM  categoria AS CT
+JOIN cliente AS C ON CT.idCategoria = C.idCategoria where C.idCategoria = 3;
 
-SELECT * FROM categoria;
+SELECT * FROM cliente;
 
-INSERT INTO cliente (nomeCliente, perfilCliente,idCategoria)VALUES('cliente numero 1', 'Cliente','Prêmio')
+-- INSERT INTO cliente (nomeCliente, perfilCliente,idCategoria)VALUES('cliente numero 1', 'Cliente','Prêmio');
+
+-- select * from usuario where loginUsuario = 'diego' and senhaUsuario = '123'
