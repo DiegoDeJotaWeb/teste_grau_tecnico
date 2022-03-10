@@ -10,7 +10,7 @@ if (isset($_POST['login'])) {
   $usuario = $_POST['login'];
   $senha = $_POST['senha'];
 
-  $login = "select * from usuario where loginUsuario = '{$usuario}' and senhaUsuario = '{$senha}'";
+  $login = "select * from usuario where loginUsuario = '{$usuario}' and senhaUsuario = md5('{$senha}')";
   
   $acesso = $con->query($login);
   // $acesso->execut();
@@ -25,6 +25,8 @@ if (isset($_POST['login'])) {
     header('Location:index.php');
   }
 }
+
+
 
 ?>
 <!doctype html>

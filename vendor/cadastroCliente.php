@@ -13,11 +13,11 @@ $categoriaCliente = $_GET["categoriaCliente"];
 
 
 $sql = "INSERT INTO cliente (nomeCliente, perfilCliente,idCategoria)VALUES('{$nomeCliente}', '{$perfilCliente}','{$categoriaCliente}')";
-echo $sql;
+//echo $sql;
 
 $con->query($sql);
 
 
 
 
-// header('Location:../relatorioCliente.php');
+header('Location:../relatorioCliente.php');

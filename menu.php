@@ -1,3 +1,4 @@
+<?php setlocale(LC_ALL, 'pt-BR')?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a class="navbar-brand" href="index.php">

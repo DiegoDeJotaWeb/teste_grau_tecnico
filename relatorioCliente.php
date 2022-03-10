@@ -1,10 +1,11 @@
-<?php 
+<?php
 session_start();
-if(!isset($_SESSION["user_painel"])){   
-    header('Location:login.php');
+if (!isset($_SESSION["user_painel"])) {
+  header('Location:login.php');
 }
 
-$home ="";$rCliente =""?>
+$home = "";
+$rCliente = "" ?>
 <?php
 include './vendor/conecta.php';
 $con = PdoConexao::getInstancia();
@@ -19,7 +20,7 @@ $buscarCliente = $con->query($sql);
 
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- Required meta tags -->
@@ -30,7 +31,7 @@ $buscarCliente = $con->query($sql);
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/lib/fontawesome-free-5.15.4-web/css/all.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>Hello, world!</title>
+  <title>Relatorio de Clientes</title>
 </head>
 
 <body>
@@ -57,14 +58,23 @@ $buscarCliente = $con->query($sql);
           echo '<th scope="row">' . $row['idCliente'] . '</th>';
           echo '<td>' . $row['nomeCliente'] . '</td>';
           echo '<td>' . $row['perfilCliente'] . '</td>';
-          
-            echo '<td class="bg-primary text-white">'. $row['nomeCategoria'] .'</td>';
-         
-         
-            echo '<td class="text-center"><a href="formularioAlterarCliente.php?nomeCliente=' . $row['nomeCliente'] . '&perfilCliente=' . $row['perfilCliente'] . '&categoriaCliente=' . $row['idCategoria']  . ' "class="btn btn-success text-white"><i class="fas fa-edit  text-white "></i></a></td>';
+
+          if ($row['nomeCategoria'] == "Grátis") {
+            echo '<td class="bg-warning text-white">' . utf8_encode($row['nomeCategoria']) . '</td>';
+          }
+          if ($row['nomeCategoria'] == "Normal") {
+            echo '<td class="bg-info text-white">' . utf8_encode($row['nomeCategoria']) . '</td>';
+          }
+          if ($row['nomeCategoria'] == "Prêmio") {
+            echo '<td class="bg-success text-white">' . utf8_encode($row['nomeCategoria']) . '</td>';
+          }
 
 
-          echo '<td class="text-center"><a href="./vendor/deletar.php?idCliente='. $row['idCliente'].'" class="btn btn-danger text-white" data-confirm="del"><i class="fas fa-trash  text-white "></i></a></td>';
+
+          echo '<td class="text-center"><a href="formularioAlterarCliente.php?nomeCliente=' . $row['nomeCliente'] . '&perfilCliente=' . $row['perfilCliente'] . '&categoriaCliente=' . $row['idCategoria'] . '&idCliente=' . $row['idCliente']   . ' "class="btn btn-success text-white"><i class="fas fa-edit  text-white "></i></a></td>';
+
+
+          echo '<td class="text-center"><a href="./vendor/deletar.php?idCliente=' . $row['idCliente'] . '" class="btn btn-danger text-white" data-confirm="del"><i class="fas fa-trash  text-white "></i></a></td>';
 
           echo '</tr>';
         }
@@ -78,7 +88,7 @@ $buscarCliente = $con->query($sql);
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="assets/js/modalConfDeletar.js"></script>
+  <script src="assets/js/modalConfDeletar.js"></script>
 </body>
 
 </html>

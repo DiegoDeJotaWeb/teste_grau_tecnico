@@ -2,16 +2,48 @@
 include 'conecta.php';
 $con = PdoConexao::getInstancia();
 
-$sql = "SELECT COUNT(*) FROM clientes";
+
+    $sql = 'SELECT count(nomeCategoria)
+    FROM  categoria AS CT
+    JOIN cliente AS C ON CT.idCategoria = C.idCategoria where C.idCategoria = 1';
+
     $acesso = $con->query($sql);
-    $count = $acesso->fetchColumn();
+    $countGratis = $acesso->fetchColumn();
     
-   
-  print $count;
-$json_str = '{"gratis":38,"normal":35,"premio":26}';
+    // echo $countGratis;
 
-//transforma a string em um array associativo
-$json_arr = json_decode($json_str, true);
+    $sql = 'SELECT count(nomeCategoria)
+    FROM  categoria AS CT
+    JOIN cliente AS C ON CT.idCategoria = C.idCategoria where C.idCategoria = 2';
 
-//exibe o array associativo
-var_dump($json_arr);
+    $acesso = $con->query($sql);
+    $countNormal = $acesso->fetchColumn();
+    
+    // echo $countNormal;
+
+    $sql = 'SELECT count(nomeCategoria)
+    FROM  categoria AS CT
+    JOIN cliente AS C ON CT.idCategoria = C.idCategoria where C.idCategoria = 3';
+
+    $acesso = $con->query($sql);
+    $countPremio = $acesso->fetchColumn();
+    
+    // echo $countPremio;
+
+    echo '<input type="hidden" id="countGratis" value="'.$countGratis.'">';
+    echo '<input type="hidden" id="countNormal" value="'.$countNormal.'">';
+    echo '<input type="hidden" id="countPremio" value="'.$countPremio.'">';
+
+
+
+
+
+
+
+
+
+
+
+
+
+

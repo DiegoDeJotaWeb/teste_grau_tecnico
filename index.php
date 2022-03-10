@@ -5,12 +5,12 @@
      header('Location:login.php');
  }
 
- 
+ include_once './vendor/quantClientes.php';
  $home = "home";  ?>
- <?php //echo md5('diego'); ?> 
+ 
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <!-- Required meta tags -->
@@ -20,7 +20,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Hello, world!</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -41,10 +41,11 @@
     <!-- <script src="assets/js/graficoClientes.js"></script> -->
     <script>
         const ctx = document.getElementById('myChart');
-        let qtdGratis = '';
-        let qtdNormal = '';
-        let qtdPremio = '';
-
+        
+        let countGratis = document.getElementById('countGratis');
+        let countNormal = document.getElementById('countNormal');
+        let countPremio = document.getElementById('countPremio');
+      
 
         const data = {
             labels: [
@@ -54,7 +55,7 @@
             ],
             datasets: [{
                 label: 'Quantidade de clientes por categoria',
-                data: [300, 50, 100],
+                data: [countGratis.value, countNormal.value, countPremio.value],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',
@@ -65,7 +66,7 @@
             }]
            
         };
-        console.log(data['datasets["data"]']);
+        // console.log(data['datasets']);
         const config = {
             type: 'pie',
             data: data,
@@ -75,6 +76,9 @@
         };
 
         const myChart = new Chart(ctx, config);
+
+
+        
     </script>
     
 </body>

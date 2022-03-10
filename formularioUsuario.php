@@ -11,7 +11,7 @@
 $home ="";$cUsuario =""?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- Required meta tags -->
@@ -21,7 +21,7 @@ $home ="";$cUsuario =""?>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <link rel="stylesheet" href="assets/css/style.css">
-  <title>Hello, world!</title>
+  <title>Formulario para cadastro usuário</title>
 </head>
 
 <body>

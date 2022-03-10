@@ -1,0 +1,7 @@
+Administrador 
+login = admin;
+senha = admin;
+
+Visualizador 
+login = jhenny;
+senha = admin;

@@ -13,7 +13,7 @@
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- Required meta tags -->
@@ -23,7 +23,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>Hello, world!</title>
+  <title>Formulario para alterar cliente</title>
 </head>
 
 <body>
@@ -36,15 +36,17 @@
       $nomeCliente = $_GET['nomeCliente'];
       $perfilCliente = $_GET['perfilCliente'];
       $categoriaCliente = $_GET['categoriaCliente'];
-      // $idCliente = $_GET['idCliente'];
+      $idCliente = $_GET['idCliente'];
 
 
       ?>
       <h1>Cadastro de cliente</h1>
-      <form action="./vendor/cadastroCliente.php" method="GET">
+      <form action="./vendor/alterarCliente.php" method="GET">
         <div class="form-group">
           <label for="nomeCliente">Nome do cliente</label>
           <input type="text" class="form-control" id="nomeCliente" placeholder="Digite o nome completo do cliente" name="nomeCliente" value="<?php echo $nomeCliente?>">
+          <input type="hidden" name="idCliente" value="<?php echo $idCliente?>">
+
         </div>
         <div class="form-group">
           <label for="perfilCliente">Perfil</label>
@@ -61,15 +63,16 @@
             include './vendor/conecta.php';
             $con = PdoConexao::getInstancia();
 
-            $sql = "SELECT * FROM categoria";
-            
+            $sql = "SELECT * FROM categoria";            
             $buscarCategoria = $con->query($sql);
 
 
-            while ($row = $buscarCategoria->fetch(PDO::FETCH_ASSOC)) {
-              // if(){
 
-              // }
+
+            while ($row = $buscarCategoria->fetch(PDO::FETCH_ASSOC)) {
+              if(isset($row['categoriaCliente'])){
+
+              }
               echo '<option value="' . $row['idCategoria'] . '" selected>' . $row['nomeCategoria']. '</option>';
               // if($row['idCategoria'] == true){
               // echo '<option value="' . $row['idCategoria'] . '" selected>' . $row['nomeCategoria']. '</option>';}else{

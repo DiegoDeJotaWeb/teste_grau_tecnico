@@ -19,3 +19,12 @@ if(isset($_GET['idCliente'])  == true){
     
     header('Location: ../relatorioCliente.php');
     }
+   
+    if(isset($_GET['idCategoria'])  == true){
+        $idCategoria = $_GET['idCategoria']; 
+        $sqlD = "DELETE FROM categoria WHERE idCategoria = {$idCategoria};";
+        echo $sqlD;
+        $con->query($sqlD);
+        
+        header('Location: ../relatorioCategoria.php');
+        }
